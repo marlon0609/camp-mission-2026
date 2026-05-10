@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camp Mission 2026 — Dangbessito</title>
+  <meta name="description" content="Camp Mission 2026 — Dangbessito. 22–29 Juillet 2026. Archidiocèse de Lomé, Doyenné Lomé-Est 2.">
+  <meta name="author"      content="Doyenné Lomé-Est 2 — C.V-A.V / A.C.E / M.I.DA.D.E">
+  <meta property="og:title"       content="Camp Mission 2026 — Dangbessito">
+  <meta property="og:description" content="22–29 Juillet 2026 · Dangbessito, Togo">
+  <meta property="og:type"        content="website">
+  <meta property="og:image"       content="assets/images/logo-camp-mission-2026.png">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- Curseur lumineux -->
+<div id="cursor-spotlight" aria-hidden="true"></div>
+
+<!-- Barre de progression scroll -->
+<div id="scroll-progress" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════ NAVBAR ═══════════════════════════ -->
+<nav id="nav" role="navigation" aria-label="Navigation principale">
+  <div class="wrap">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" aria-label="Camp Mission 2026 — Accueil">
+        <img src="assets/images/logo-camp-mission-2026.png" alt="Logo Camp Mission 2026" class="nav-logo-img" height="44">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#programme">Programme</a></li>
+        <li><a href="#inscription">Inscription</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#inscription" class="btn btn-y nav-cta magnetic">S'inscrire</a>
+      <button class="nav-burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+<section id="hero" aria-label="Présentation de l'événement">
+  <!-- Photo de fond -->
+  <div class="hero-photo-bg" aria-hidden="true"></div>
+  <!-- Fond ambiant -->
+  <div class="hero-glow"    aria-hidden="true"></div>
+  <div class="hero-grid"    aria-hidden="true"></div>
+  <div class="hero-orb-1"   aria-hidden="true"></div>
+  <div class="hero-orb-2"   aria-hidden="true"></div>
+  <!-- Particules générées par JS -->
+  <div id="particles"       aria-hidden="true"></div>
+
+  <div class="wrap">
+    <div class="hero-content" id="heroContent">
+
+      <!-- Bandeau organisation -->
+      <div class="hero-eyebrow r">
+        <span class="hero-eyebrow-line" aria-hidden="true"></span>
+        <span class="hero-eyebrow-txt">Archidiocèse de Lomé &nbsp;·&nbsp; Doyenné Lomé-Est 2</span>
+        <span class="badge-dot" aria-hidden="true"></span>
+      </div>
+
+      <!-- Titre principal + badge 2026 (inspiré du logo) -->
+      <div class="hero-title-block r" role="heading" aria-level="1" aria-label="Camp Mission 2026">
+        <div class="hero-title-text">
+          <span class="hero-camp">CAMP</span>
+          <span class="hero-mission">MISSION</span>
+        </div>
+        <div class="hero-year-badge" aria-hidden="true">
+          <span class="year-half">20</span>
+          <span class="hero-badge-sep"></span>
+          <span class="year-half">26</span>
+        </div>
+      </div>
+
+      <p class="hero-place r" aria-label="Dangbessito">
+        D &thinsp;A &thinsp;N &thinsp;G &thinsp;B &thinsp;E &thinsp;S &thinsp;S &thinsp;I &thinsp;T &thinsp;O
+      </p>
+
+      <!-- Pill dates -->
+      <div class="hero-dates r">
+        <svg class="dates-fire" width="13" height="16" viewBox="0 0 13 16" fill="none" aria-hidden="true">
+          <path d="M6.5 1C9 4 10 7 8.5 10.5C7.3 13 6.5 14.5 6.5 14.5C6.5 14.5 5.7 13 4.5 10.5C3 7 4 4 6.5 1Z" fill="#F5C800"/>
+          <path d="M6.5 6C7.3 7.8 7.6 9.2 7 10.8C6.7 11.8 6.5 12.5 6.5 12.5C6.5 12.5 6.3 11.8 6 10.8C5.4 9.2 5.7 7.8 6.5 6Z" fill="#E55000"/>
+        </svg>
+        22 — 29 Juillet 2026
+        <span class="pipe" aria-hidden="true">|</span>
+        Dangbessito, Togo
+      </div>
+
+      <!-- Countdown -->
+      <div class="countdown r" id="countdown" aria-label="Compte à rebours">
+        <div class="cd-item">
+          <span class="cd-num glass-num" id="cd-days">--</span>
+          <span class="cd-lbl">Jours</span>
+        </div>
+        <div class="cd-sep" aria-hidden="true">:</div>
+        <div class="cd-item">
+          <span class="cd-num glass-num" id="cd-hours">--</span>
+          <span class="cd-lbl">Heures</span>
+        </div>
+        <div class="cd-sep" aria-hidden="true">:</div>
+        <div class="cd-item">
+          <span class="cd-num glass-num" id="cd-mins">--</span>
+          <span class="cd-lbl">Min</span>
+        </div>
+        <div class="cd-sep" aria-hidden="true">:</div>
+        <div class="cd-item">
+          <span class="cd-num glass-num" id="cd-secs">--</span>
+          <span class="cd-lbl">Sec</span>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="hero-actions r">
+        <a href="#inscription" class="btn btn-y btn-lg magnetic glow-btn">
+          <span>S'inscrire maintenant</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#about" class="btn btn-ow btn-lg magnetic">En savoir plus</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-hint" aria-hidden="true">
+    <span class="scroll-hint-line"></span>
+    <span class="scroll-hint-txt">Défiler</span>
+  </div>
+</section>
+
+<div class="div" aria-hidden="true"></div>
+
+
+<!-- ═══════════════════════════ À PROPOS ═══════════════════════════ -->
+<section class="section" id="about" aria-labelledby="about-title">
+  <!-- Blobs ambiants -->
+  <div class="section-blob blob-y" aria-hidden="true"></div>
+  <div class="section-blob blob-t" aria-hidden="true" style="right:5%;top:20%;left:auto"></div>
+
+  <div class="wrap">
+    <div class="about-grid">
+
+      <div class="about-body r">
+        <span class="lbl">À propos</span>
+        <h2 class="title" id="about-title" style="margin-bottom:28px">
+          Une semaine<br>de foi et de<br>fraternité
+        </h2>
+        <p>
+          Le <strong>Camp Mission 2026</strong> rassemble les jeunes des mouvements
+          catholiques du Doyenné Lomé-Est 2 pour huit jours inoubliables
+          à Dangbessito, au cœur du Togo.
+        </p>
+        <p>
+          Prière, vie fraternelle, ateliers, chants, sport et sorties
+          missionnaires — chaque journée est pensée pour grandir dans
+          la foi et vivre pleinement l'aventure de l'Évangile.
+        </p>
+        <div class="mv-tags">
+          <span class="mv-tag">C.V-A.V</span>
+          <span class="mv-tag">A.C.E</span>
+          <span class="mv-tag">M.I.DA.D.E</span>
+          <span class="mv-tag">Bureau Décanal</span>
+        </div>
+      </div>
+
+      <div class="stats r" aria-label="Chiffres clés">
+        <div class="stat-card glass-card tilt-card">
+          <div class="stat-n counter" data-target="8">0</div>
+          <div class="stat-l">Jours de camp</div>
+          <div class="card-shine" aria-hidden="true"></div>
+        </div>
+        <div class="stat-card glass-card tilt-card">
+          <div class="stat-n counter" data-target="3">0</div>
+          <div class="stat-l">Mouvements unis</div>
+          <div class="card-shine" aria-hidden="true"></div>
+        </div>
+        <div class="stat-card glass-card tilt-card">
+          <div class="stat-n" style="font-size:32px;line-height:1.2">Dangb.<br>2026</div>
+          <div class="stat-l">Lieu &amp; édition</div>
+          <div class="card-shine" aria-hidden="true"></div>
+        </div>
+        <div class="stat-card glass-card tilt-card">
+          <div class="stat-n">100<small style="font-size:.5em">%</small></div>
+          <div class="stat-l">Mission</div>
+          <div class="card-shine" aria-hidden="true"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="div" aria-hidden="true"></div>
+
+
+<!-- ═══════════════════════════ GALERIE 2025 ═══════════════════════════ -->
+<section class="section gallery-section" id="galerie" aria-labelledby="gallery-title">
+  <div class="section-blob blob-o" style="top:20%;left:15%"              aria-hidden="true"></div>
+  <div class="section-blob blob-t" style="bottom:15%;right:10%;left:auto" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <div class="gallery-header">
+      <div class="r">
+        <span class="lbl">Souvenirs</span>
+        <h2 class="title" id="gallery-title">Camp 2025<br><span class="grad-text">Afagnan-Gbleta</span></h2>
+      </div>
+      <p class="gallery-sub r">
+        Revivez les moments forts de l'édition 2025 — une semaine de foi,<br>de joie et de fraternité inoubliable à Afagnan-Gbleta.
+      </p>
+    </div>
+
+    <div class="gallery-grid" id="galleryGrid">
+
+      <!-- ── Bloc visible par défaut (16 premières photos) ── -->
+      <div class="gallery-item r" data-index="0">
+        <img src="assets/images/1.jpg"  alt="Camp Mission 2025 — Photo 1"  loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item r" data-index="1">
+        <img src="assets/images/2.jpg"  alt="Camp Mission 2025 — Photo 2"  loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item r" data-index="2">
+        <img src="assets/images/3.jpg"  alt="Camp Mission 2025 — Photo 3"  loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item r" data-index="3">
+        <img src="assets/images/4.jpg"  alt="Camp Mission 2025 — Photo 4"  loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item r" data-index="4">
+        <img src="assets/images/5.jpg"  alt="Camp Mission 2025 — Photo 5"  loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item r" data-index="5">
+        <img src="assets/images/6.jpg"  alt="Camp Mission 2025 — Photo 6"  loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item r" data-index="6">
+        <img src="assets/images/7.jpg"  alt="Camp Mission 2025 — Photo 7"  loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item r" data-index="7">
+        <img src="assets/images/8.jpg"  alt="Camp Mission 2025 — Photo 8"  loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item r" data-index="8">
+        <img src="assets/images/9.jpg"  alt="Camp Mission 2025 — Photo 9"  loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item r" data-index="9">
+        <img src="assets/images/10.jpg" alt="Camp Mission 2025 — Photo 10" loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item r" data-index="10">
+        <img src="assets/images/11.jpg" alt="Camp Mission 2025 — Photo 11" loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item r" data-index="11">
+        <img src="assets/images/12.jpg" alt="Camp Mission 2025 — Photo 12" loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item r" data-index="12">
+        <img src="assets/images/13.jpg" alt="Camp Mission 2025 — Photo 13" loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item r" data-index="13">
+        <img src="assets/images/14.jpg" alt="Camp Mission 2025 — Photo 14" loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item r" data-index="14">
+        <img src="assets/images/15.jpg" alt="Camp Mission 2025 — Photo 15" loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item r" data-index="15">
+        <img src="assets/images/16.jpg" alt="Camp Mission 2025 — Photo 16" loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+
+      <!-- ── Photos supplémentaires (masquées au chargement) ── -->
+      <div class="gallery-item gallery-extra" data-index="16">
+        <img src="assets/images/17.jpg" alt="Camp Mission 2025 — Photo 17" loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item gallery-extra" data-index="17">
+        <img src="assets/images/18.jpg" alt="Camp Mission 2025 — Photo 18" loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item gallery-extra" data-index="18">
+        <img src="assets/images/19.jpg" alt="Camp Mission 2025 — Photo 19" loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item gallery-extra" data-index="19">
+        <img src="assets/images/20.jpg" alt="Camp Mission 2025 — Photo 20" loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item gallery-extra" data-index="20">
+        <img src="assets/images/21.jpg" alt="Camp Mission 2025 — Photo 21" loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item gallery-extra" data-index="21">
+        <img src="assets/images/22.jpg" alt="Camp Mission 2025 — Photo 22" loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item gallery-extra" data-index="22">
+        <img src="assets/images/23.jpg" alt="Camp Mission 2025 — Photo 23" loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item gallery-extra" data-index="23">
+        <img src="assets/images/24.jpg" alt="Camp Mission 2025 — Photo 24" loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item gallery-extra" data-index="24">
+        <img src="assets/images/25.jpg" alt="Camp Mission 2025 — Photo 25" loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item gallery-extra" data-index="25">
+        <img src="assets/images/26.jpg" alt="Camp Mission 2025 — Photo 26" loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item gallery-extra" data-index="26">
+        <img src="assets/images/27.jpg" alt="Camp Mission 2025 — Photo 27" loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item gallery-extra" data-index="27">
+        <img src="assets/images/28.jpg" alt="Camp Mission 2025 — Photo 28" loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item gallery-extra" data-index="28">
+        <img src="assets/images/03012010-DSC_0922.jpg" alt="Camp Mission 2025 — Photo 29" loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item gallery-extra" data-index="29">
+        <img src="assets/images/03012010-DSC_0940.jpg" alt="Camp Mission 2025 — Photo 30" loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item gallery-extra" data-index="30">
+        <img src="assets/images/03012010-DSC_0946.jpg" alt="Camp Mission 2025 — Photo 31" loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item gallery-extra" data-index="31">
+        <img src="assets/images/03012010-DSC_0967.jpg" alt="Camp Mission 2025 — Photo 32" loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item gallery-extra" data-index="32">
+        <img src="assets/images/03012010-DSC_0969.jpg" alt="Camp Mission 2025 — Photo 33" loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item gallery-extra" data-index="33">
+        <img src="assets/images/03012010-DSC_0972.jpg" alt="Camp Mission 2025 — Photo 34" loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item gallery-extra" data-index="34">
+        <img src="assets/images/03012010-DSC_0974.jpg" alt="Camp Mission 2025 — Photo 35" loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item gallery-extra" data-index="35">
+        <img src="assets/images/03012010-DSC_0985.jpg" alt="Camp Mission 2025 — Photo 36" loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item gallery-extra" data-index="36">
+        <img src="assets/images/WhatsApp%20Image%202025-07-31%20%C3%A0%2020.24.35_bb789f92.jpg" alt="Camp Mission 2025 — Photo 37" loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="gallery-item gallery-extra" data-index="37">
+        <img src="assets/images/WhatsApp%20Image%202025-07-31%20%C3%A0%2020.24.37_ecb33318.jpg" alt="Camp Mission 2025 — Photo 38" loading="lazy"><div class="gallery-overlay"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6" stroke="white" stroke-width="1.6"/><path d="M14.5 14.5L19 19" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      </div>
+
+    </div><!-- /gallery-grid -->
+
+    <!-- Bouton "Voir plus" -->
+    <div class="gallery-more-wrap r">
+      <button class="gallery-more-btn" id="galleryMore">
+        Voir toutes les photos
+        <span class="gallery-count">(38)</span>
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Lightbox ── -->
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Visionneuse de photos" hidden>
+  <div class="lb-overlay" id="lbOverlay"></div>
+  <div class="lb-inner">
+    <button class="lb-close" id="lbClose" aria-label="Fermer la visionneuse">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 4l12 12M16 4L4 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Photo précédente">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Photo suivante">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="lb-img-wrap">
+      <img id="lbImg" src="" alt="" class="lb-img">
+    </div>
+    <div class="lb-footer">
+      <p class="lb-caption">Camp Mission 2025 — Afagnan-Gbleta</p>
+      <p class="lb-counter" id="lbCounter"></p>
+    </div>
+  </div>
+</div>
+
+<div class="div" aria-hidden="true"></div>
+
+
+<!-- ═══════════════════════════ PROGRAMME ═══════════════════════════ -->
+<section class="section prog-section" id="programme" aria-labelledby="prog-title">
+  <div class="section-blob blob-o" style="top:50%;left:50%;transform:translate(-50%,-50%)" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <div class="prog-head r">
+      <div>
+        <span class="lbl">Programme</span>
+        <h2 class="title" id="prog-title">8 jours<br>d'activités</h2>
+      </div>
+      <p class="prog-note">Du 22 au 29 juillet — chaque journée pensée pour grandir ensemble.</p>
+    </div>
+
+    <div class="prog-grid">
+      <article class="prog-card glass-card tilt-card r">
+        <div class="prog-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c2 3.5 2.5 6.5 1 9.5-1 2-1 3-1 3s0-1-1-3c-1.5-3-.5-6 1-9.5z"/><path d="M8 22h8M12 14.5v7.5"/><circle cx="12" cy="14.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        </div>
+        <span class="prog-tag">Spiritualité</span>
+        <h3 class="prog-title-h">Prière &amp; Messes</h3>
+        <p class="prog-desc">Célébrations eucharistiques quotidiennes, temps d'adoration et prières communautaires pour nourrir la foi de chacun.</p>
+        <div class="card-shine" aria-hidden="true"></div>
+      </article>
+      <article class="prog-card glass-card tilt-card r">
+        <div class="prog-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="8" r="2.5"/><path d="M3 21c0-3.5 2.7-6 6-6h6c3.3 0 6 2.5 6 6"/><path d="M14.5 15c.5-1 1.5-2 3-2.5"/></svg>
+        </div>
+        <span class="prog-tag">Communauté</span>
+        <h3 class="prog-title-h">Vie de camp</h3>
+        <p class="prog-desc">Partage du quotidien en fraternité — repas communs, veillées, témoignages et moments de vie en équipe.</p>
+        <div class="card-shine" aria-hidden="true"></div>
+      </article>
+      <article class="prog-card glass-card tilt-card r">
+        <div class="prog-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5C2 5.4 2.9 4.5 4 4.5h9c1.1 0 2 .9 2 2v11c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6.5z"/><path d="M15 7.5c0-1.7 1.3-3 3-3s3 1.3 3 3v11c0 .8-.7 1.5-1.5 1.5H15V7.5z"/><path d="M6 9h6M6 13h6"/></svg>
+        </div>
+        <span class="prog-tag">Formation</span>
+        <h3 class="prog-title-h">Ateliers</h3>
+        <p class="prog-desc">Ateliers de formation humaine et spirituelle animés par des intervenants engagés dans la mission de l'Église.</p>
+        <div class="card-shine" aria-hidden="true"></div>
+      </article>
+      <article class="prog-card glass-card tilt-card r">
+        <div class="prog-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        </div>
+        <span class="prog-tag">Louange</span>
+        <h3 class="prog-title-h">Chants &amp; Louange</h3>
+        <p class="prog-desc">Sessions de louange, apprentissage de chants liturgiques et animations musicales pour élever l'âme.</p>
+        <div class="card-shine" aria-hidden="true"></div>
+      </article>
+      <article class="prog-card glass-card tilt-card r">
+        <div class="prog-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <span class="prog-tag">Loisirs</span>
+        <h3 class="prog-title-h">Sport &amp; Jeux</h3>
+        <p class="prog-desc">Tournois sportifs, jeux de plein air et activités physiques pour renforcer l'esprit d'équipe et la joie.</p>
+        <div class="card-shine" aria-hidden="true"></div>
+      </article>
+      <article class="prog-card glass-card tilt-card r">
+        <div class="prog-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </div>
+        <span class="prog-tag">Mission</span>
+        <h3 class="prog-title-h">Sorties Missionnaires</h3>
+        <p class="prog-desc">Visites et actions auprès des communautés locales — mettre en pratique l'appel à la mission de l'Évangile.</p>
+        <div class="card-shine" aria-hidden="true"></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="div" aria-hidden="true"></div>
+
+
+<!-- ═══════════════════════════ INSCRIPTION ═══════════════════════════ -->
+<section class="section" id="inscription" aria-labelledby="form-title">
+  <div class="section-blob blob-y" style="right:0;top:0;left:auto" aria-hidden="true"></div>
+  <div class="section-blob blob-t" style="left:0;bottom:0" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <div class="form-wrap">
+      <div class="r">
+        <span class="lbl">Inscription</span>
+        <h2 class="title" id="form-title">Rejoins<br>l'aventure</h2>
+      </div>
+
+      <!-- Card formulaire -->
+      <div class="form-card-outer r">
+        <div class="form-card glass-card-strong">
+          <div class="form-stripe-animated" aria-hidden="true"></div>
+          <div class="form-body">
+
+            <form id="regForm" novalidate aria-label="Formulaire d'inscription">
+
+              <!-- Bloc 1 -->
+              <fieldset class="form-block">
+                <legend class="form-block-h">
+                  <span class="block-num">01</span> Informations personnelles
+                </legend>
+                <div class="frow">
+                  <div class="fg">
+                    <label class="flbl" for="nom">Nom <span class="req">*</span></label>
+                    <input class="fi" id="nom" name="nom" type="text" placeholder="Votre nom de famille" autocomplete="family-name" required>
+                  </div>
+                  <div class="fg">
+                    <label class="flbl" for="prenom">Prénom <span class="req">*</span></label>
+                    <input class="fi" id="prenom" name="prenom" type="text" placeholder="Votre prénom" autocomplete="given-name" required>
+                  </div>
+                  <div class="fg">
+                    <label class="flbl" for="ddn">Date de naissance <span class="req">*</span></label>
+                    <input class="fi" id="ddn" name="ddn" type="date" autocomplete="bday" required>
+                  </div>
+                  <div class="fg">
+                    <label class="flbl" for="sexe">Sexe <span class="req">*</span></label>
+                    <select class="fs" id="sexe" name="sexe" required>
+                      <option value="" disabled selected>Choisir…</option>
+                      <option value="M">Masculin</option>
+                      <option value="F">Féminin</option>
+                    </select>
+                  </div>
+                  <div class="fg">
+                    <label class="flbl" for="paroisse">Paroisse <span class="req">*</span></label>
+                    <input class="fi" id="paroisse" name="paroisse" type="text" placeholder="Nom de votre paroisse" required>
+                  </div>
+                  <div class="fg">
+                    <label class="flbl" for="mouvement">Mouvement <span class="req">*</span></label>
+                    <select class="fs" id="mouvement" name="mouvement" required>
+                      <option value="" disabled selected>Choisir…</option>
+                      <option value="cvav">C.V-A.V</option>
+                      <option value="ace">A.C.E</option>
+                      <option value="midade">M.I.DA.D.E</option>
+                    </select>
+                  </div>
+                </div>
+              </fieldset>
+
+              <!-- Bloc 2 -->
+              <fieldset class="form-block">
+                <legend class="form-block-h">
+                  <span class="block-num">02</span> Coordonnées du tuteur / parent
+                </legend>
+                <div class="frow">
+                  <div class="fg">
+                    <label class="flbl" for="tuteur-nom">Nom complet <span class="req">*</span></label>
+                    <input class="fi" id="tuteur-nom" name="tuteur-nom" type="text" placeholder="Nom complet du tuteur" autocomplete="name" required>
+                  </div>
+                  <div class="fg">
+                    <label class="flbl" for="tuteur-tel">Téléphone <span class="req">*</span></label>
+                    <input class="fi" id="tuteur-tel" name="tuteur-tel" type="tel" placeholder="+228 XX XX XX XX" autocomplete="tel" required>
+                  </div>
+                </div>
+              </fieldset>
+
+              <!-- Bloc 3 -->
+              <fieldset class="form-block">
+                <legend class="form-block-h">
+                  <span class="block-num">03</span> Santé &amp; Consentements
+                </legend>
+                <div class="frow">
+                  <div class="fg span2">
+                    <label class="flbl" for="sante">Allergies ou informations médicales</label>
+                    <textarea class="fta" id="sante" name="sante" placeholder="Allergie, traitement en cours ou informations utiles pour l'équipe médicale (optionnel)…"></textarea>
+                  </div>
+                  <div class="fg span2">
+                    <fieldset style="border:none;padding:0">
+                      <legend class="flbl">Sait nager ? <span class="req">*</span></legend>
+                      <div class="radio-g">
+                        <label class="radio-item">
+                          <input type="radio" name="swim" value="oui" required>
+                          <span>Oui</span>
+                        </label>
+                        <label class="radio-item">
+                          <input type="radio" name="swim" value="non">
+                          <span>Non</span>
+                        </label>
+                        <label class="radio-item">
+                          <input type="radio" name="swim" value="un-peu">
+                          <span>Un peu</span>
+                        </label>
+                      </div>
+                    </fieldset>
+                  </div>
+                  <div class="fg span2" style="margin-top:8px">
+                    <span class="flbl">Consentements parentaux <span class="req">*</span></span>
+                    <div class="check-g">
+                      <label class="check-item">
+                        <input type="checkbox" name="consent1" required>
+                        <span>J'autorise mon enfant / le participant à prendre part à toutes les activités du Camp Mission 2026 — Dangbessito, y compris les activités sportives et les sorties missionnaires.</span>
+                      </label>
+                      <label class="check-item">
+                        <input type="checkbox" name="consent2" required>
+                        <span>Je certifie que les informations fournies sont exactes et j'accepte que des photos ou vidéos du participant puissent être utilisées à des fins de communication officielle.</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+
+              <div class="form-foot">
+                <button type="submit" class="btn-submit magnetic glow-btn">
+                  <span>Valider mon inscription</span>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+            </form>
+
+            <!-- Message succès -->
+            <div id="success" role="alert" aria-live="polite">
+              <div class="success-ring" aria-hidden="true"></div>
+              <span class="success-icon" aria-hidden="true">🔥</span>
+              <h3 class="success-h">Inscription reçue !</h3>
+              <p class="success-p">
+                Merci pour votre inscription au Camp Mission 2026.<br>
+                Notre équipe vous contactera bientôt pour confirmation.<br>
+                À très vite à Dangbessito !
+              </p>
+              <a href="tel:+22898707026" class="success-cta">📞 +228 98707026</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="div" aria-hidden="true"></div>
+
+
+<!-- ═══════════════════════════ CONTACT ═══════════════════════════ -->
+<section class="section contact-section" id="contact" aria-labelledby="contact-title">
+  <div class="section-blob blob-t" style="right:10%;top:20%;left:auto" aria-hidden="true"></div>
+  <div class="section-blob blob-y" style="left:5%;bottom:15%" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <div class="r">
+      <span class="lbl">Contact</span>
+      <h2 class="title" id="contact-title">Nous<br>joindre</h2>
+    </div>
+
+    <div class="contact-editorial">
+
+      <!-- Rangée haute : grande carte téléphone + carte organisation -->
+      <div class="contact-top">
+
+        <!-- Grande carte — Téléphone & Email -->
+        <div class="contact-main glass-card r">
+          <div class="contact-main-label">Téléphone</div>
+          <a href="tel:+22898707026" class="contact-main-number" aria-label="Appeler le +228 98 70 70 26">
+            +228<br>98 70 70 26
+          </a>
+          <p class="contact-main-sub">Disponible du lundi au samedi, 8h – 20h</p>
+          <div class="contact-main-email">
+            <span class="contact-email-lbl">Email</span>
+            <a href="mailto:cvavdoyennelomeest2@gmail.com" class="contact-email-val">cvavdoyennelomeest2@gmail.com</a>
+          </div>
+          <a href="tel:+22898707026" class="btn btn-y contact-call-btn magnetic glow-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.8 10.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012.71 0h3a2 2 0 012 1.72c.13 1 .35 1.98.67 2.93a2 2 0 01-.45 2.11L6.91 7.78a16 16 0 006.29 6.29l1.02-1.02a2 2 0 012.11-.45c.95.32 1.93.54 2.93.67A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Appeler maintenant</span>
+          </a>
+          <div class="card-shine" aria-hidden="true"></div>
+        </div>
+
+        <!-- Carte organisation -->
+        <div class="contact-org glass-card r">
+          <div class="contact-org-badge">
+            <img src="assets/images/logo-camp-mission-2026.png" alt="Logo Camp Mission 2026" class="contact-org-logo">
+          </div>
+          <h3 class="contact-org-name">Camp Mission<br>2026</h3>
+          <p class="contact-org-place">Dangbessito, Togo</p>
+          <div class="contact-org-divider"></div>
+          <div class="contact-org-info">
+            <div class="contact-org-row">
+              <span class="contact-org-key">Organisation</span>
+              <span class="contact-org-val">Archidiocèse de Lomé<br>Doyenné Lomé-Est 2</span>
+            </div>
+            <div class="contact-org-row">
+              <span class="contact-org-key">Mouvements</span>
+              <span class="contact-org-val">C.V-A.V &nbsp;·&nbsp; A.C.E &nbsp;·&nbsp; M.I.DA.D.E</span>
+            </div>
+            <div class="contact-org-row">
+              <span class="contact-org-key">Dates</span>
+              <span class="contact-org-val highlight">22 — 29 Juillet 2026</span>
+            </div>
+          </div>
+          <div class="card-shine" aria-hidden="true"></div>
+        </div>
+
+      </div><!-- /contact-top -->
+
+      <!-- Rangée basse : Facebook, TikTok, Lieu -->
+      <div class="contact-bottom">
+
+        <div class="contact-sub glass-card tilt-card r">
+          <div class="contact-sub-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="contact-sub-platform">Facebook</div>
+          <div class="contact-sub-handle">@cvavdoyennelomeest2</div>
+          <div class="card-shine" aria-hidden="true"></div>
+        </div>
+
+        <div class="contact-sub glass-card tilt-card r">
+          <div class="contact-sub-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="contact-sub-platform">TikTok</div>
+          <div class="contact-sub-handle">@cvavdoyennelomeest2</div>
+          <div class="card-shine" aria-hidden="true"></div>
+        </div>
+
+        <div class="contact-sub glass-card tilt-card r">
+          <div class="contact-sub-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.6"/></svg>
+          </div>
+          <div class="contact-sub-platform">Lieu</div>
+          <div class="contact-sub-handle">
+            Dangbessito, Togo
+            <span>22 — 29 Juillet 2026</span>
+          </div>
+          <div class="card-shine" aria-hidden="true"></div>
+        </div>
+
+      </div><!-- /contact-bottom -->
+
+    </div><!-- /contact-editorial -->
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+<footer role="contentinfo">
+  <div class="foot-glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="foot-inner">
+      <img src="assets/images/logo-camp-mission-2026.png" alt="Logo Camp Mission 2026" class="foot-logo-img" height="60">
+      <p class="foot-org">
+        Archidiocèse de Lomé &nbsp;·&nbsp; Doyenné Lomé-Est 2<br>
+        M.I.DA.D.E &nbsp;/&nbsp; A.C.E &nbsp;/&nbsp; C.V-A.V — Bureau Décanal
+      </p>
+      <div class="foot-hr" aria-hidden="true"></div>
+      <p class="foot-copy">© 2026 Camp Mission — Dangbessito. Tous droits réservés.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Bouton retour en haut -->
+<button id="back-top" aria-label="Retour en haut de page" title="Retour en haut">
+  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+    <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

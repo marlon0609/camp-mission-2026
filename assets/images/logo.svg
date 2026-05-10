@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <!-- Fond -->
+  <rect width="160" height="160" rx="16" fill="#0A0A0A"/>
+
+  <!-- Silhouette enfants (inspirée du logo officiel) -->
+  <g fill="#F5C800">
+    <!-- Corps gauche (fille) -->
+    <ellipse cx="52" cy="46" rx="10" ry="10"/>
+    <path d="M38 60 Q42 56 52 58 Q62 56 66 60 L60 90 Q52 88 44 90 Z"/>
+    <!-- Bras gauche levé -->
+    <path d="M38 60 Q28 48 30 40" stroke="#F5C800" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <!-- Bras droit -->
+    <path d="M66 60 Q72 70 68 78" stroke="#F5C800" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <!-- Jambes -->
+    <path d="M44 90 L40 115" stroke="#F5C800" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <path d="M60 90 L58 115" stroke="#F5C800" stroke-width="7" fill="none" stroke-linecap="round"/>
+
+    <!-- Corps droit (garçon) -->
+    <ellipse cx="108" cy="46" rx="10" ry="10"/>
+    <path d="M94 60 Q98 56 108 58 Q118 56 122 60 L116 90 Q108 88 100 90 Z"/>
+    <!-- Bras gauche -->
+    <path d="M94 60 Q88 70 92 78" stroke="#F5C800" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <!-- Bras droit levé -->
+    <path d="M122 60 Q132 48 130 40" stroke="#F5C800" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <!-- Jambes -->
+    <path d="M100 90 L102 115" stroke="#F5C800" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <path d="M116 90 L120 115" stroke="#F5C800" stroke-width="7" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Flamme centrale (petit) -->
+  <g transform="translate(80, 92)">
+    <!-- Flamme orange -->
+    <path d="M0,-18 C6,-12 10,-6 8,0 C6,6 0,8 0,8 C0,8 -6,6 -8,0 C-10,-6 -6,-12 0,-18Z" fill="#E55000"/>
+    <!-- Flamme jaune intérieure -->
+    <path d="M0,-10 C3,-6 5,-2 4,2 C2,5 0,6 0,6 C0,6 -2,5 -4,2 C-5,-2 -3,-6 0,-10Z" fill="#F5C800"/>
+    <!-- Bûches -->
+    <ellipse cx="-8" cy="10" rx="9" ry="4" fill="#5C3A1E" transform="rotate(-20)"/>
+    <ellipse cx="8" cy="10" rx="9" ry="4" fill="#5C3A1E" transform="rotate(20)"/>
+  </g>
+
+  <!-- Texte "2026" en teal -->
+  <text x="80" y="148" text-anchor="middle" font-family="'Bebas Neue', Arial Black, sans-serif" font-size="22" font-weight="900" fill="#00E5C4" letter-spacing="3">2026</text>
+</svg>

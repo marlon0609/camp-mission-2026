@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Fond arrondi -->
+  <rect width="32" height="32" rx="6" fill="#0A0A0A"/>
+  <!-- Flamme -->
+  <path d="M16 4 C20 8 22 12 20 17 C18 21 16 22 16 22 C16 22 14 21 12 17 C10 12 12 8 16 4Z" fill="#E55000"/>
+  <path d="M16 10 C18 13 19 15 18 18 C17 20 16 21 16 21 C16 21 15 20 14 18 C13 15 14 13 16 10Z" fill="#F5C800"/>
+  <!-- Bûches -->
+  <rect x="8" y="22" width="16" height="4" rx="2" fill="#5C3A1E" transform="rotate(-8 16 24)"/>
+  <rect x="8" y="23" width="16" height="4" rx="2" fill="#5C3A1E" transform="rotate(8 16 25)"/>
+  <!-- Point teal -->
+  <circle cx="24" cy="8" r="4" fill="#00E5C4"/>
+</svg>
