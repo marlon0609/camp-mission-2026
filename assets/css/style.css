@@ -1927,6 +1927,30 @@ footer {
 .dates-fire { display: block; flex-shrink: 0; }
 
 /* ==========================================================================
+   Hero — Rangée principale : boutons à gauche · titre à droite
+   ========================================================================== */
+.hero-main-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 52px;
+  margin-bottom: 28px;
+}
+
+.hero-main-row .hero-actions {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding-bottom: 18px;
+  flex-shrink: 0;
+  margin-bottom: 0;
+  flex-wrap: nowrap;
+}
+
+.hero-main-row .hero-title-block {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
    Responsive Hero éditorial
    ========================================================================== */
 @media (max-width: 900px) {
@@ -1934,6 +1958,22 @@ footer {
   .hero-mission { font-size: clamp(72px, 14vw, 118px); }
   .year-half    { font-size: clamp(30px, 6vw, 50px); }
   .hero-year-badge { padding: 18px 20px; }
+  .hero-main-row { gap: 36px; }
+}
+
+@media (max-width: 768px) {
+  .hero-main-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+  }
+  .hero-main-row .hero-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-bottom: 0;
+    order: 2;
+  }
+  .hero-main-row .hero-title-block { order: 1; }
 }
 
 @media (max-width: 600px) {
