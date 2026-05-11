@@ -506,16 +506,30 @@
                     </select>
                   </div>
                   <div class="fg">
-                    <label class="flbl" for="paroisse">Paroisse <span class="req">*</span></label>
-                    <input class="fi" id="paroisse" name="paroisse" type="text" placeholder="Nom de votre paroisse" required>
+                    <label class="flbl" for="paroisse">Groupe de Base <span class="req">*</span></label>
+                    <select class="fs" id="paroisse" name="paroisse" required>
+                      <option value="" disabled selected>Choisir…</option>
+                      <option value="groupe1">Kpogan</option>
+                      <option value="groupe2">Agodékè</option>
+                      <option value="groupe3">Avépozo-kpota</option>
+                      <option value="groupe4">Avépozo</option>
+                      <option value="groupe5">Baguida</option>
+                      <option value="groupe6">Afanoukopé</option>
+                      <option value="groupe7">Dévégo</option>
+                      <option value="groupe8">Lom-Nava</option>
+                      <option value="groupe9">Adamavo</option>
+                      <option value="groupe10">Kagomé</option>
+                      <option value="groupe11">Kagnikopé</option>
+                    </select>
                   </div>
                   <div class="fg">
-                    <label class="flbl" for="mouvement">Mouvement <span class="req">*</span></label>
-                    <select class="fs" id="mouvement" name="mouvement" required>
+                    <label class="flbl" for="legion">Légion <span class="req">*</span></label>
+                    <select class="fs" id="legion" name="legion" required>
                       <option value="" disabled selected>Choisir…</option>
-                      <option value="cvav">C.V-A.V</option>
-                      <option value="ace">A.C.E</option>
-                      <option value="midade">M.I.DA.D.E</option>
+                      <option value="aiglons-avettes">Légion des Aiglons · Avettes (3–5 ans)</option>
+                      <option value="coeurs-or-souriantes">Légion des Cœurs d'Or · Souriantes (6–9 ans)</option>
+                      <option value="ardents-rayonnantes">Légion des Ardents · Rayonnantes (9–12 ans)</option>
+                      <option value="entraineurs-conquerantes">Légion des Entraîneurs · Conquérantes (12–15 ans)</option>
                     </select>
                   </div>
                 </div>
