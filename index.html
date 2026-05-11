@@ -49,15 +49,19 @@
 
 <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
 <section id="hero" aria-label="Présentation de l'événement">
-  <!-- Photo de fond -->
-  <div class="hero-photo-bg" aria-hidden="true"></div>
-  <!-- Fond ambiant -->
-  <div class="hero-glow"    aria-hidden="true"></div>
-  <div class="hero-grid"    aria-hidden="true"></div>
-  <div class="hero-orb-1"   aria-hidden="true"></div>
-  <div class="hero-orb-2"   aria-hidden="true"></div>
-  <!-- Particules générées par JS -->
-  <div id="particles"       aria-hidden="true"></div>
+
+  <!-- Ambiance globale -->
+  <div class="hero-glow"  aria-hidden="true"></div>
+  <div class="hero-grid"  aria-hidden="true"></div>
+  <div class="hero-orb-1" aria-hidden="true"></div>
+  <div class="hero-orb-2" aria-hidden="true"></div>
+  <div id="particles"     aria-hidden="true"></div>
+
+  <!-- Photo 2.jpg — droite, fondu vers le noir du héro -->
+  <div class="hero-visual" aria-hidden="true">
+    <div class="hero-visual-img"></div>
+    <div class="hero-visual-overlay"></div>
+  </div>
 
   <div class="wrap">
     <div class="hero-content" id="heroContent">
@@ -69,33 +73,29 @@
         <span class="badge-dot" aria-hidden="true"></span>
       </div>
 
-      <!-- Rangée principale : boutons à gauche · titre + badge à droite -->
-      <div class="hero-main-row">
-
-        <!-- Titre + badge 2026 — colonne droite -->
-        <div class="hero-title-block r" role="heading" aria-level="1" aria-label="Camp Mission 2026">
-          <div class="hero-title-text">
-            <span class="hero-camp">CAMP</span>
-            <span class="hero-mission">MISSION</span>
-          </div>
-          <div class="hero-year-badge" aria-hidden="true">
-            <span class="year-half">20</span>
-            <span class="hero-badge-sep"></span>
-            <span class="year-half">26</span>
-          </div>
+      <!-- Titre CAMP / MISSION + badge 2026 -->
+      <div class="hero-title-block r" role="heading" aria-level="1" aria-label="Camp Mission 2026">
+        <div class="hero-title-text">
+          <span class="hero-camp">CAMP</span>
+          <span class="hero-mission">MISSION</span>
         </div>
-
-        <!-- CTA — colonne gauche -->
-        <div class="hero-actions r">
-          <a href="#inscription" class="btn btn-y btn-lg magnetic glow-btn">
-            <span>S'inscrire maintenant</span>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a href="#about" class="btn btn-ow btn-lg magnetic">En savoir plus</a>
+        <div class="hero-year-badge" aria-hidden="true">
+          <span class="year-half">20</span>
+          <span class="hero-badge-sep"></span>
+          <span class="year-half">26</span>
         </div>
+      </div>
 
-      </div><!-- /hero-main-row -->
+      <!-- CTA -->
+      <div class="hero-actions r">
+        <a href="#inscription" class="btn btn-y btn-lg magnetic glow-btn">
+          <span>S'inscrire maintenant</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#about" class="btn btn-ow btn-lg magnetic">En savoir plus</a>
+      </div>
 
+      <!-- Lieu -->
       <p class="hero-place r" aria-label="Dangbessito">
         D &thinsp;A &thinsp;N &thinsp;G &thinsp;B &thinsp;E &thinsp;S &thinsp;S &thinsp;I &thinsp;T &thinsp;O
       </p>
@@ -111,7 +111,7 @@
         Dangbessito, Togo
       </div>
 
-      <!-- Countdown -->
+      <!-- Compte à rebours -->
       <div class="countdown r" id="countdown" aria-label="Compte à rebours">
         <div class="cd-item">
           <span class="cd-num glass-num" id="cd-days">--</span>
@@ -137,7 +137,7 @@
     </div>
   </div>
 
-  <!-- Scroll indicator -->
+  <!-- Indicateur de défilement -->
   <div class="scroll-hint" aria-hidden="true">
     <span class="scroll-hint-line"></span>
     <span class="scroll-hint-txt">Défiler</span>
@@ -186,8 +186,8 @@
           <div class="card-shine" aria-hidden="true"></div>
         </div>
         <div class="stat-card glass-card tilt-card">
-          <div class="stat-n counter" data-target="3">0</div>
-          <div class="stat-l">Mouvements unis</div>
+          <div class="stat-n counter" data-target="11">0</div>
+          <div class="stat-l">Groupes de Base</div>
           <div class="card-shine" aria-hidden="true"></div>
         </div>
         <div class="stat-card glass-card tilt-card">
@@ -526,10 +526,10 @@
                     <label class="flbl" for="legion">Légion <span class="req">*</span></label>
                     <select class="fs" id="legion" name="legion" required>
                       <option value="" disabled selected>Choisir…</option>
-                      <option value="aiglons-avettes">Légion des Aiglons · Avettes (3–5 ans)</option>
-                      <option value="coeurs-or-souriantes">Légion des Cœurs d'Or · Souriantes (6–9 ans)</option>
-                      <option value="ardents-rayonnantes">Légion des Ardents · Rayonnantes (9–12 ans)</option>
-                      <option value="entraineurs-conquerantes">Légion des Entraîneurs · Conquérantes (12–15 ans)</option>
+                      <option value="aiglons-avettes">Aiglons · Avettes (3–5 ans)</option>
+                      <option value="coeurs-or-souriantes">Cœurs d'Or · Souriantes (6–9 ans)</option>
+                      <option value="ardents-rayonnantes">Ardents · Rayonnantes (9–12 ans)</option>
+                      <option value="entraineurs-conquerantes">Entraîneurs · Conquérantes (12–15 ans)</option>
                     </select>
                   </div>
                 </div>

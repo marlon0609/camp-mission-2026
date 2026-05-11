@@ -120,6 +120,11 @@ a { color: inherit; }
   100% { transform: translateY(-100px) translateX(var(--px,0px)) scale(0); opacity: 0; }
 }
 
+@keyframes hero-ken-burns {
+  from { transform: scale(1)    translateX(0); }
+  to   { transform: scale(1.07) translateX(-2%); }
+}
+
 @keyframes glow-pulse-y {
   0%, 100% { box-shadow: 0 0 20px rgba(245,200,0,0.15), 0 0 40px rgba(245,200,0,0.05); }
   50%       { box-shadow: 0 0 40px rgba(245,200,0,0.35), 0 0 80px rgba(245,200,0,0.12); }
@@ -495,6 +500,7 @@ a { color: inherit; }
   align-items: center;
   padding-top: 100px;
   overflow: hidden;
+  background: var(--black);
 }
 
 .hero-glow {
@@ -562,7 +568,43 @@ a { color: inherit; }
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 900px;
+  max-width: 720px;
+}
+
+/* ── Hero : photo 2.jpg à droite, fondu vers le noir ── */
+.hero-visual {
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 55%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-visual-img {
+  position: absolute;
+  inset: -5%;
+  background: url('../images/2.jpg') center/cover no-repeat;
+  animation: hero-ken-burns 22s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.hero-visual-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right,
+      var(--black)           0%,
+      rgba(10,10,10,0.88)   18%,
+      rgba(10,10,10,0.52)   42%,
+      rgba(10,10,10,0.14)   72%,
+      rgba(10,10,10,0.04)  100%
+    ),
+    linear-gradient(to bottom,
+      rgba(10,10,10,0.60)   0%,
+      transparent           22%,
+      rgba(10,10,10,0.38)  100%
+    );
 }
 
 /* Badge */
@@ -716,6 +758,8 @@ a { color: inherit; }
   display: flex;
   align-items: center;
   gap: 16px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
   flex-wrap: wrap;
   will-change: transform;
   transition: transform 0.3s ease;
@@ -1486,26 +1530,7 @@ footer {
    AJOUTS — Galerie 2025 + Lightbox + Corrections formulaire
    ========================================================================== */
 
-/* --------------------------------------------------------------------------
-   Hero — fond photo
-   -------------------------------------------------------------------------- */
-.hero-photo-bg {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(to bottom,
-      rgba(10,10,10,0.52) 0%,
-      rgba(10,10,10,0.08) 48%,
-      rgba(10,10,10,0.68) 100%),
-    linear-gradient(130deg,
-      rgba(245,160,0,0.20) 0%,
-      transparent 44%,
-      rgba(0,229,196,0.12) 100%),
-    url('../images/2.png');
-  background-size: cover;
-  background-position: center 30%;
-  z-index: 0;
-}
+/* .hero-photo-bg supprimé — remplacé par .hero-visual / .hero-visual-img */
 
 /* --------------------------------------------------------------------------
    Formulaire — bordure statique (remplace le spinner)
@@ -1927,60 +1952,43 @@ footer {
 .dates-fire { display: block; flex-shrink: 0; }
 
 /* ==========================================================================
-   Hero — Rangée principale : boutons à gauche · titre à droite
-   ========================================================================== */
-.hero-main-row {
-  display: flex;
-  align-items: flex-end;
-  gap: 52px;
-  margin-bottom: 28px;
-}
-
-.hero-main-row .hero-actions {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 14px;
-  padding-bottom: 18px;
-  flex-shrink: 0;
-  margin-bottom: 0;
-  flex-wrap: nowrap;
-}
-
-.hero-main-row .hero-title-block {
-  margin-bottom: 0;
-}
-
-/* ==========================================================================
    Responsive Hero éditorial
    ========================================================================== */
+@media (max-width: 1100px) {
+  .hero-visual { width: 52%; }
+}
+
 @media (max-width: 900px) {
+  .hero-visual { width: 48%; }
   .hero-camp,
   .hero-mission { font-size: clamp(72px, 14vw, 118px); }
   .year-half    { font-size: clamp(30px, 6vw, 50px); }
   .hero-year-badge { padding: 18px 20px; }
-  .hero-main-row { gap: 36px; }
 }
 
 @media (max-width: 768px) {
-  .hero-main-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 28px;
+  .hero-visual {
+    top: auto;
+    width: 100%;
+    height: 52vh;
+    opacity: 0.45;
   }
-  .hero-main-row .hero-actions {
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding-bottom: 0;
-    order: 2;
+  .hero-visual-overlay {
+    background: linear-gradient(to bottom,
+      var(--black) 0%,
+      transparent 35%,
+      var(--black) 100%
+    );
   }
-  .hero-main-row .hero-title-block { order: 1; }
+  .hero-eyebrow { margin-bottom: 32px; }
 }
 
 @media (max-width: 600px) {
-  .hero-title-block { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .hero-visual { opacity: 0.35; }
+  .hero-title-block { flex-direction: column; align-items: flex-start; gap: 16px; }
   .hero-camp,
   .hero-mission    { font-size: clamp(64px, 18vw, 100px); }
-  .hero-year-badge { align-self: flex-start; padding: 16px 18px; }
-  .year-half       { font-size: clamp(28px, 8vw, 44px); }
-  .hero-eyebrow    { margin-bottom: 36px; }
+  .hero-year-badge { align-self: flex-start; padding: 14px 16px; }
+  .year-half       { font-size: clamp(28px, 8vw, 42px); }
+  .hero-actions    { gap: 12px; }
 }
