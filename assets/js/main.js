@@ -392,11 +392,15 @@
    11. Formulaire — validation & soumission
    ========================================================================== */
 (function initForm() {
+  /* ── Coller ici l'URL obtenue après déploiement Google Apps Script ── */
+  const SCRIPT_URL = 'COLLER_ICI_VOTRE_URL_WEB_APP';
+
   const form      = document.getElementById('regForm');
   const successEl = document.getElementById('success');
+  const submitBtn = form?.querySelector('.btn-submit');
   if (!form || !successEl) return;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     if (!form.checkValidity()) {
@@ -410,6 +414,21 @@
       return;
     }
 
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.querySelector('span').textContent = 'Envoi en cours…';
+    }
+
+    if (SCRIPT_URL !== 'COLLER_ICI_VOTRE_URL_WEB_APP') {
+      try {
+        await fetch(SCRIPT_URL, {
+          method: 'POST',
+          mode:   'no-cors',
+          body:   new URLSearchParams(new FormData(form))
+        });
+      } catch (_) {}
+    }
+
     form.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
     form.style.opacity    = '0';
     form.style.transform  = 'translateY(-10px)';
@@ -420,7 +439,6 @@
       successEl.style.opacity = '0';
       successEl.style.transform = 'translateY(20px)';
       successEl.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-
       requestAnimationFrame(() => requestAnimationFrame(() => {
         successEl.style.opacity   = '1';
         successEl.style.transform = 'translateY(0)';
