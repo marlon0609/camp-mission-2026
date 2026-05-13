@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,11 +10,15 @@
   <meta property="og:description" content="22–29 Juillet 2026 · Dangbessito, Togo">
   <meta property="og:type"        content="website">
   <meta property="og:image"       content="assets/images/logo-camp-mission-2026.png">
-  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="icon" type="image/png" href="assets/images/logo-camp-mission-2026.png">
+  <link rel="apple-touch-icon" href="assets/images/logo-camp-mission-2026.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    (function(){var t=localStorage.getItem('cm26-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();
+  </script>
 </head>
 <body>
 
@@ -38,6 +42,10 @@
         <li><a href="#inscription">Inscription</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème" title="Changer le thème">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
       <a href="#inscription" class="btn btn-y nav-cta magnetic">S'inscrire</a>
       <button class="nav-burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -51,11 +59,12 @@
 <section id="hero" aria-label="Présentation de l'événement">
 
   <!-- Ambiance globale -->
-  <div class="hero-glow"  aria-hidden="true"></div>
-  <div class="hero-grid"  aria-hidden="true"></div>
-  <div class="hero-orb-1" aria-hidden="true"></div>
-  <div class="hero-orb-2" aria-hidden="true"></div>
-  <div id="particles"     aria-hidden="true"></div>
+  <div class="hero-glow"   aria-hidden="true"></div>
+  <div class="hero-grid"   aria-hidden="true"></div>
+  <div class="hero-orb-1"  aria-hidden="true"></div>
+  <div class="hero-orb-2"  aria-hidden="true"></div>
+  <div class="hero-radial" aria-hidden="true"></div>
+  <div id="particles"      aria-hidden="true"></div>
 
   <!-- Photo 2.jpg — droite, fondu vers le noir du héro -->
   <div class="hero-visual" aria-hidden="true">
@@ -74,41 +83,30 @@
       </div>
 
       <!-- Titre CAMP / MISSION + badge 2026 -->
-      <div class="hero-title-block r" role="heading" aria-level="1" aria-label="Camp Mission 2026">
+      <div class="hero-title-block" role="heading" aria-level="1" aria-label="Camp Mission 2026 Dangbessito">
         <div class="hero-title-text">
-          <span class="hero-camp">CAMP</span>
-          <span class="hero-mission">MISSION</span>
+          <span class="hero-camp r">CAMP</span>
+          <span class="hero-mission r">MISSION</span>
         </div>
         <div class="hero-year-badge" aria-hidden="true">
-          <span class="year-half">20</span>
-          <span class="hero-badge-sep"></span>
-          <span class="year-half">26</span>
+          <span class="hero-year-top">20</span>
+          <span class="hero-year-sep"></span>
+          <span class="hero-year-bottom">26</span>
+        </div>
+        <div class="hero-title-text">
+          <span class="hero-place r" aria-label="Dangbessito">DANGBESSITO</span>
         </div>
       </div>
 
-      <!-- CTA -->
-      <div class="hero-actions r">
-        <a href="#inscription" class="btn btn-y btn-lg magnetic glow-btn">
-          <span>S'inscrire maintenant</span>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <a href="#about" class="btn btn-ow btn-lg magnetic">En savoir plus</a>
-      </div>
-
-      <!-- Lieu -->
-      <p class="hero-place r" aria-label="Dangbessito">
-        D &thinsp;A &thinsp;N &thinsp;G &thinsp;B &thinsp;E &thinsp;S &thinsp;S &thinsp;I &thinsp;T &thinsp;O
-      </p>
-
-      <!-- Pill dates -->
-      <div class="hero-dates r">
-        <svg class="dates-fire" width="13" height="16" viewBox="0 0 13 16" fill="none" aria-hidden="true">
-          <path d="M6.5 1C9 4 10 7 8.5 10.5C7.3 13 6.5 14.5 6.5 14.5C6.5 14.5 5.7 13 4.5 10.5C3 7 4 4 6.5 1Z" fill="#F5C800"/>
-          <path d="M6.5 6C7.3 7.8 7.6 9.2 7 10.8C6.7 11.8 6.5 12.5 6.5 12.5C6.5 12.5 6.3 11.8 6 10.8C5.4 9.2 5.7 7.8 6.5 6Z" fill="#E55000"/>
-        </svg>
-        22 — 29 Juillet 2026
-        <span class="pipe" aria-hidden="true">|</span>
-        Dangbessito, Togo
+      <div class="hero-meta r" aria-label="Informations principales">
+        <!-- Pill dates -->
+        <div class="hero-dates">
+          <svg class="dates-fire" width="13" height="16" viewBox="0 0 13 16" fill="none" aria-hidden="true">
+            <path d="M6.5 1C9 4 10 7 8.5 10.5C7.3 13 6.5 14.5 6.5 14.5C6.5 14.5 5.7 13 4.5 10.5C3 7 4 4 6.5 1Z" fill="#F5C800"/>
+            <path d="M6.5 6C7.3 7.8 7.6 9.2 7 10.8C6.7 11.8 6.5 12.5 6.5 12.5C6.5 12.5 6.3 11.8 6 10.8C5.4 9.2 5.7 7.8 6.5 6Z" fill="#E55000"/>
+          </svg>
+          22 — 29 Juillet 2026
+        </div>
       </div>
 
       <!-- Compte à rebours -->
@@ -135,6 +133,15 @@
       </div>
 
     </div>
+  </div>
+
+  <!-- CTA superposés à l'image de couverture -->
+  <div class="hero-actions r">
+    <a href="#inscription" class="btn btn-y btn-lg magnetic glow-btn">
+      <span>S'inscrire maintenant</span>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a href="#about" class="btn btn-ow btn-lg magnetic">En savoir plus</a>
   </div>
 
   <!-- Indicateur de défilement -->
@@ -485,13 +492,11 @@
                   <span class="block-num">01</span> Informations personnelles
                 </legend>
                 <div class="frow">
-                  <div class="fg">
-                    <label class="flbl" for="nom">Nom <span class="req">*</span></label>
-                    <input class="fi" id="nom" name="nom" type="text" placeholder="Votre nom de famille" autocomplete="family-name" required>
-                  </div>
-                  <div class="fg">
-                    <label class="flbl" for="prenom">Prénom <span class="req">*</span></label>
-                    <input class="fi" id="prenom" name="prenom" type="text" placeholder="Votre prénom" autocomplete="given-name" required>
+                  <div class="fg span2">
+                    <label class="flbl" for="nom-complet">Nom &amp; Prénom <span class="req">*</span></label>
+                    <input class="fi" id="nom-complet" name="nom-complet" type="text"
+                           placeholder="Nom de famille suivi du prénom"
+                           autocomplete="name" required>
                   </div>
                   <div class="fg">
                     <label class="flbl" for="ddn">Date de naissance <span class="req">*</span></label>
@@ -504,6 +509,19 @@
                       <option value="M">Masculin</option>
                       <option value="F">Féminin</option>
                     </select>
+                  </div>
+                  <div class="fg">
+                    <label class="flbl" for="tel-campeur">
+                      Téléphone du campeur <span class="req">*</span>
+                      <span class="flbl-hint">(+228 XX XX XX XX)</span>
+                    </label>
+                    <input class="fi" id="tel-campeur" name="tel-campeur" type="tel"
+                           placeholder="+228 90 00 00 00"
+                           inputmode="tel"
+                           maxlength="17"
+                           pattern="(\+228|00228)?[0-9\s]{8,13}"
+                           autocomplete="tel"
+                           required>
                   </div>
                   <div class="fg">
                     <label class="flbl" for="paroisse">Groupe de Base <span class="req">*</span></label>
@@ -546,8 +564,17 @@
                     <input class="fi" id="tuteur-nom" name="tuteur-nom" type="text" placeholder="Nom complet du tuteur" autocomplete="name" required>
                   </div>
                   <div class="fg">
-                    <label class="flbl" for="tuteur-tel">Téléphone <span class="req">*</span></label>
-                    <input class="fi" id="tuteur-tel" name="tuteur-tel" type="tel" placeholder="+228 XX XX XX XX" autocomplete="tel" required>
+                    <label class="flbl" for="tuteur-tel">
+                      Téléphone <span class="req">*</span>
+                      <span class="flbl-hint">(Togo : +228 XX XX XX XX)</span>
+                    </label>
+                    <input class="fi" id="tuteur-tel" name="tuteur-tel" type="tel"
+                           placeholder="+228 90 00 00 00"
+                           inputmode="tel"
+                           maxlength="17"
+                           pattern="(\+228|00228)?[0-9\s]{8,13}"
+                           autocomplete="tel"
+                           required>
                   </div>
                 </div>
               </fieldset>

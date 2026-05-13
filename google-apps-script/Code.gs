@@ -38,14 +38,14 @@ function doPost(e) {
     sheet.appendRow([
       num,
       Utilities.formatDate(new Date(), 'Africa/Lome', 'dd/MM/yyyy HH:mm'),
-      (d.nom    || '').trim(),
-      (d.prenom || '').trim(),
+      (d['nom-complet'] || '').trim(),
       d.ddn     || '',
       d.sexe === 'M' ? 'Masculin' : 'Féminin',
+      _normalizePhone(d['tel-campeur']),
       d.paroisse || '',
       LEGION_MAP[d.legion] || d.legion || '',
       (d['tuteur-nom'] || '').trim(),
-      (d['tuteur-tel'] || '').trim(),
+      _normalizePhone(d['tuteur-tel']),
       _swim(d.swim),
       (d.sante  || '').trim() || '—',
       d.consent1 === 'on' ? '✓' : '✗',
@@ -75,10 +75,18 @@ function _swim(val) {
   return val === 'oui' ? 'Oui' : val === 'non' ? 'Non' : 'Un peu';
 }
 
+function _normalizePhone(raw) {
+  if (!raw) return '—';
+  raw = raw.replace(/[\s\-\.]/g, '');
+  if (raw.startsWith('00228')) raw = '+228' + raw.slice(5);
+  if (/^\d{8}$/.test(raw))    raw = '+228' + raw;
+  return raw;
+}
+
 function _initSheet(sheet) {
   const HEADERS = [
     'N°', 'Date inscription',
-    'Nom', 'Prénom', 'Date naissance', 'Sexe',
+    'Nom & Prénom', 'Date naissance', 'Sexe', 'Tél. campeur',
     'Groupe de base', 'Légion',
     'Tuteur — Nom', 'Tuteur — Tél',
     'Sait nager ?', 'Infos médicales',

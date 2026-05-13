@@ -71,7 +71,9 @@
     burger.setAttribute('aria-expanded', isOpen);
   });
 
-  document.querySelectorAll('#navLinks a').forEach(a => {
+  const navLinks = document.querySelectorAll('#navLinks a');
+
+  navLinks.forEach(a => {
     a.addEventListener('click', () => {
       nav.classList.remove('open');
       burger.setAttribute('aria-expanded', 'false');
@@ -84,43 +86,52 @@
       burger.setAttribute('aria-expanded', 'false');
     }
   });
+
+  // Indicateur de section active au scroll
+  const sections = Array.from(document.querySelectorAll('section[id], div[id]')).filter(s =>
+    document.querySelector('#navLinks a[href="#' + s.id + '"]')
+  );
+
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      navLinks.forEach(a => a.classList.remove('nav-active'));
+      const active = document.querySelector('#navLinks a[href="#' + entry.target.id + '"]');
+      if (active) active.classList.add('nav-active');
+    });
+  }, { threshold: 0.35 });
+
+  sections.forEach(s => sectionObserver.observe(s));
 })();
 
 /* ==========================================================================
-   4. Particules dans le hero
+   4. Thème sombre / clair
    ========================================================================== */
-(function initParticles() {
-  const container = document.getElementById('particles');
-  if (!container) return;
+(function initTheme() {
+  const html   = document.documentElement;
+  const btn    = document.getElementById('themeToggle');
+  const KEY    = 'cm26-theme';
 
-  const count = window.innerWidth < 768 ? 18 : 40;
-  const colors = ['#F5C800', '#00E5C4', '#E55000', '#FFB300'];
+  const saved = localStorage.getItem(KEY);
+  if (saved) html.setAttribute('data-theme', saved);
 
-  for (let i = 0; i < count; i++) {
-    const p = document.createElement('div');
-    p.className = 'particle';
+  if (!btn) return;
 
-    const size = Math.random() * 4 + 1.5;
-    const color = colors[Math.floor(Math.random() * colors.length)];
-    const duration = Math.random() * 12 + 8;
-    const delay    = Math.random() * 10;
-    const px       = (Math.random() - 0.5) * 60;
+  btn.addEventListener('click', () => {
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    const next   = isDark ? 'light' : 'dark';
 
-    p.style.cssText = `
-      left: ${Math.random() * 100}%;
-      bottom: ${Math.random() * 60}%;
-      width: ${size}px;
-      height: ${size}px;
-      background: ${color};
-      opacity: ${Math.random() * 0.5 + 0.1};
-      animation-duration: ${duration}s;
-      animation-delay: ${delay}s;
-      --px: ${px}px;
-      box-shadow: 0 0 ${size * 2}px ${color};
-    `;
+    html.classList.add('theme-transitioning');
+    html.setAttribute('data-theme', next);
+    localStorage.setItem(KEY, next);
 
-    container.appendChild(p);
-  }
+    btn.style.animation = 'theme-spin 0.5s var(--te-premium) both';
+    btn.addEventListener('animationend', () => {
+      btn.style.animation = '';
+    }, { once: true });
+
+    setTimeout(() => html.classList.remove('theme-transitioning'), 400);
+  });
 })();
 
 /* ==========================================================================
@@ -130,12 +141,22 @@
   const elements = document.querySelectorAll('.r');
   if (!elements.length) return;
 
-  // Hero — immédiatement avec décalage en cascade
-  let heroDelay = 0;
-  document.querySelectorAll('#hero .r').forEach(el => {
-    el.style.transitionDelay = heroDelay + 'ms';
-    heroDelay += 90;
-    setTimeout(() => el.classList.add('in'), 100 + heroDelay);
+  // Hero — timings scénarisés par élément
+  const heroTimings = new Map([
+    ['.hero-eyebrow',     0],
+    ['.hero-camp',      200],
+    ['.hero-mission',   320],
+    ['.hero-actions',   440],
+    ['.hero-place',     560],
+    ['.hero-dates',     680],
+    ['.countdown',      760],
+  ]);
+
+  heroTimings.forEach((delay, sel) => {
+    const el = document.querySelector('#hero ' + sel);
+    if (!el) return;
+    el.style.transitionDelay = delay + 'ms';
+    setTimeout(() => el.classList.add('in'), 100 + delay);
   });
 
   // Reste de la page
@@ -392,18 +413,55 @@
    11. Formulaire — validation & soumission
    ========================================================================== */
 (function initForm() {
-  /* ── Coller ici l'URL obtenue après déploiement Google Apps Script ── */
-  const SCRIPT_URL = 'COLLER_ICI_VOTRE_URL_WEB_APP';
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyOv_g2bAJcTtNbVPFeRZ0b6-ITkppeVA4IEnLCou8RV7snMgFQU6tNLcRLdOjVcgs/exec';
 
   const form      = document.getElementById('regForm');
   const successEl = document.getElementById('success');
   const submitBtn = form?.querySelector('.btn-submit');
   if (!form || !successEl) return;
 
+  /* ── Auto-format téléphone Togo (+228 XX XX XX XX) ── */
+  function formatTel(input) {
+    if (!input) return;
+    input.addEventListener('input', () => {
+      let v = input.value.replace(/[^\d+]/g, '');
+      if (v.startsWith('00228'))  v = '+228' + v.slice(5);
+      else if (/^228/.test(v))   v = '+' + v;
+      if (v.startsWith('+228')) {
+        const d = v.slice(4).slice(0, 8);
+        v = '+228 ' + d.replace(/(\d{2})(?=\d)/g, '$1 ').trim();
+      } else {
+        v = v.slice(0, 8).replace(/(\d{2})(?=\d)/g, '$1 ').trim();
+      }
+      input.value = v;
+    });
+  }
+  formatTel(document.getElementById('tel-campeur'));
+  formatTel(document.getElementById('tuteur-tel'));
+
+  /* ── Normalise le numéro avant envoi : +228XXXXXXXX sans espaces ── */
+  function normalizePhone(raw) {
+    raw = (raw || '').replace(/[\s\-\.]/g, '');
+    if (raw.startsWith('00228')) raw = '+228' + raw.slice(5);
+    if (/^\d{8}$/.test(raw))    raw = '+228' + raw;
+    return raw;
+  }
+
+  function shakeInvalid() {
+    const fields = form.querySelectorAll('.fi, .fs, .fta');
+    fields.forEach(f => {
+      if (!f.validity.valid) {
+        f.classList.add('invalid');
+        f.addEventListener('animationend', () => f.classList.remove('invalid'), { once: true });
+      }
+    });
+  }
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     if (!form.checkValidity()) {
+      shakeInvalid();
       form.reportValidity();
       return;
     }
@@ -419,13 +477,13 @@
       submitBtn.querySelector('span').textContent = 'Envoi en cours…';
     }
 
+    const params = new URLSearchParams(new FormData(form));
+    params.set('tel-campeur', normalizePhone(params.get('tel-campeur')));
+    params.set('tuteur-tel',  normalizePhone(params.get('tuteur-tel')));
+
     if (SCRIPT_URL !== 'COLLER_ICI_VOTRE_URL_WEB_APP') {
       try {
-        await fetch(SCRIPT_URL, {
-          method: 'POST',
-          mode:   'no-cors',
-          body:   new URLSearchParams(new FormData(form))
-        });
+        await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: params });
       } catch (_) {}
     }
 
