@@ -404,59 +404,19 @@
       <p class="prog-note">Du 22 au 29 juillet — chaque journée pensée pour grandir ensemble.</p>
     </div>
 
-    <div class="prog-grid">
-      <article class="prog-card glass-card tilt-card r">
-        <div class="prog-icon" aria-hidden="true">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c2 3.5 2.5 6.5 1 9.5-1 2-1 3-1 3s0-1-1-3c-1.5-3-.5-6 1-9.5z"/><path d="M8 22h8M12 14.5v7.5"/><circle cx="12" cy="14.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+    <div class="prog-shell r" data-programme>
+      <div class="prog-days" id="progDays" role="tablist" aria-label="Choisir une journée du programme"></div>
+
+      <article class="prog-day-panel glass-card" id="progPanel" role="tabpanel" aria-live="polite">
+        <div class="prog-day-kicker" id="progMode">Programme du camp</div>
+        <div class="prog-day-head">
+          <div>
+            <span class="prog-date" id="progDate"></span>
+            <h3 class="prog-day-title" id="progDayTitle"></h3>
+          </div>
+          <div class="prog-word" id="progWord"></div>
         </div>
-        <span class="prog-tag">Spiritualité</span>
-        <h3 class="prog-title-h">Prière &amp; Messes</h3>
-        <p class="prog-desc">Célébrations eucharistiques quotidiennes, temps d'adoration et prières communautaires pour nourrir la foi de chacun.</p>
-        <div class="card-shine" aria-hidden="true"></div>
-      </article>
-      <article class="prog-card glass-card tilt-card r">
-        <div class="prog-icon" aria-hidden="true">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="8" r="2.5"/><path d="M3 21c0-3.5 2.7-6 6-6h6c3.3 0 6 2.5 6 6"/><path d="M14.5 15c.5-1 1.5-2 3-2.5"/></svg>
-        </div>
-        <span class="prog-tag">Communauté</span>
-        <h3 class="prog-title-h">Vie de camp</h3>
-        <p class="prog-desc">Partage du quotidien en fraternité — repas communs, veillées, témoignages et moments de vie en équipe.</p>
-        <div class="card-shine" aria-hidden="true"></div>
-      </article>
-      <article class="prog-card glass-card tilt-card r">
-        <div class="prog-icon" aria-hidden="true">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5C2 5.4 2.9 4.5 4 4.5h9c1.1 0 2 .9 2 2v11c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6.5z"/><path d="M15 7.5c0-1.7 1.3-3 3-3s3 1.3 3 3v11c0 .8-.7 1.5-1.5 1.5H15V7.5z"/><path d="M6 9h6M6 13h6"/></svg>
-        </div>
-        <span class="prog-tag">Formation</span>
-        <h3 class="prog-title-h">Ateliers</h3>
-        <p class="prog-desc">Ateliers de formation humaine et spirituelle animés par des intervenants engagés dans la mission de l'Église.</p>
-        <div class="card-shine" aria-hidden="true"></div>
-      </article>
-      <article class="prog-card glass-card tilt-card r">
-        <div class="prog-icon" aria-hidden="true">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-        </div>
-        <span class="prog-tag">Louange</span>
-        <h3 class="prog-title-h">Chants &amp; Louange</h3>
-        <p class="prog-desc">Sessions de louange, apprentissage de chants liturgiques et animations musicales pour élever l'âme.</p>
-        <div class="card-shine" aria-hidden="true"></div>
-      </article>
-      <article class="prog-card glass-card tilt-card r">
-        <div class="prog-icon" aria-hidden="true">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-        </div>
-        <span class="prog-tag">Loisirs</span>
-        <h3 class="prog-title-h">Sport &amp; Jeux</h3>
-        <p class="prog-desc">Tournois sportifs, jeux de plein air et activités physiques pour renforcer l'esprit d'équipe et la joie.</p>
-        <div class="card-shine" aria-hidden="true"></div>
-      </article>
-      <article class="prog-card glass-card tilt-card r">
-        <div class="prog-icon" aria-hidden="true">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-        </div>
-        <span class="prog-tag">Mission</span>
-        <h3 class="prog-title-h">Sorties Missionnaires</h3>
-        <p class="prog-desc">Visites et actions auprès des communautés locales — mettre en pratique l'appel à la mission de l'Évangile.</p>
+        <ol class="prog-timeline" id="progTimeline"></ol>
         <div class="card-shine" aria-hidden="true"></div>
       </article>
     </div>

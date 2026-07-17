@@ -410,7 +410,264 @@
 })();
 
 /* ==========================================================================
-   11. Formulaire — validation & soumission
+   11. Programme journalier
+   ========================================================================== */
+(function initDailyProgramme() {
+  const daysEl = document.getElementById('progDays');
+  const panelEl = document.getElementById('progPanel');
+  const modeEl = document.getElementById('progMode');
+  const dateEl = document.getElementById('progDate');
+  const titleEl = document.getElementById('progDayTitle');
+  const wordEl = document.getElementById('progWord');
+  const timelineEl = document.getElementById('progTimeline');
+  if (!daysEl || !panelEl || !modeEl || !dateEl || !titleEl || !wordEl || !timelineEl) return;
+
+  const programme = [
+    {
+      date: '2026-07-22',
+      day: 'Mercredi',
+      label: '22 juillet',
+      title: 'Journée Hola',
+      word: 'Mot du soir : Crainte',
+      events: [
+        ['08h00', 'Rassemblement et contrôle'],
+        ['10h00 - 11h30', 'Départ'],
+        ['14h30', 'Arrivée et installation'],
+        ['18h00', 'Angélus'],
+        ['19h00', 'Dîner'],
+        ['20h00', 'Ouverture du camp missionnaire : règlement intérieur, consigne et lancement de la récollection'],
+        ['21h30', 'Couvre-feu']
+      ]
+    },
+    {
+      date: '2026-07-23',
+      day: 'Jeudi',
+      label: '23 juillet',
+      title: 'Journée Méditation',
+      word: 'Mot du jour : Piété · Mot du soir : Sagesse',
+      events: [
+        ['05h00', 'Réveil + prière'],
+        ['05h30', 'Messe'],
+        ['06h45', 'Jogging et entretien'],
+        ['08h00', 'Petit déjeuner'],
+        ['09h00', 'Rêver'],
+        ['11h00', 'Chemin de croix et douche'],
+        ['12h30', 'Déjeuner'],
+        ['13h20', 'Sieste'],
+        ['15h00', 'Chapelet de la miséricorde et préparatif'],
+        ['18h00', 'Angélus et adoration'],
+        ['19h30', 'Dîner'],
+        ['20h30', 'Soirée louange : détruire le mur de Jéricho'],
+        ['22h00', 'Journal et couvre-feu']
+      ]
+    },
+    {
+      date: '2026-07-24',
+      day: 'Vendredi',
+      label: '24 juillet',
+      title: 'Journée Missionnaire',
+      word: 'Mot du jour : Intelligence · Mot du soir : Connaissance',
+      events: [
+        ['05h00', 'Réveil + prière'],
+        ['05h30', 'Messe'],
+        ['06h45', 'Jogging et entretien'],
+        ['08h00', 'Petit déjeuner'],
+        ['09h00', 'Atelier : carte de mission'],
+        ['10h30', 'Activités missionnaires : évangélisons autrement'],
+        ['12h00', 'Angélus et déjeuner'],
+        ['13h00', 'Douche et sieste'],
+        ['15h00', 'Olympiade : jeux des vertus et de politesse'],
+        ['18h00', 'Angélus et animation'],
+        ['19h00', 'Dîner'],
+        ['20h00', 'Projection : photos et vidéos, League des génies et journal'],
+        ['22h00', 'Couvre-feu']
+      ]
+    },
+    {
+      date: '2026-07-25',
+      day: 'Samedi',
+      label: '25 juillet',
+      title: 'Journée Olympique',
+      word: 'Mot du jour : Amour · Mot du soir : Amour',
+      events: [
+        ['05h00', 'Réveil et prière'],
+        ['05h30', 'Messe'],
+        ['06h30', 'Jogging et entretien'],
+        ['08h00', 'Petit déjeuner'],
+        ['09h00', 'Initiation au jeu de piste biblique'],
+        ['10h00', 'Formation sur la santé sexuelle'],
+        ['12h00', 'Déjeuner'],
+        ['13h00', 'Douche et sieste'],
+        ['15h00', 'Jeux de piste'],
+        ['17h00', 'Animation'],
+        ['19h00', 'Dîner'],
+        ['20h00', 'League des génies, veillée et journal'],
+        ['22h00', 'Couvre-feu']
+      ]
+    },
+    {
+      date: '2026-07-26',
+      day: 'Dimanche',
+      label: '26 juillet',
+      title: 'Journée Culturelle',
+      word: 'Mot du jour : Courage · Mot du soir : Conseil',
+      events: [
+        ['05h00', 'Réveil et prière'],
+        ['05h30', 'Entretien'],
+        ['06h00', 'Douche'],
+        ['07h00', 'Petit déjeuner'],
+        ['08h30', 'Messe et caravane'],
+        ['12h00', 'Pique-nique'],
+        ['14h00', 'Après-midi culturelle : prestations, joutes verbales et League des génies'],
+        ['19h00', 'Bal masqué'],
+        ['22h00', 'Couvre-feu']
+      ]
+    },
+    {
+      date: '2026-07-27',
+      day: 'Lundi',
+      label: '27 juillet',
+      title: 'Journée Tradi-moderne',
+      word: 'Mot du jour : Science · Mot du soir : Union',
+      events: [
+        ['05h30', 'Réveil et prière'],
+        ['06h00', 'Jogging et entretien'],
+        ['08h00', 'Petit déjeuner'],
+        ['09h30', 'Matinée clerc et formation en art oratoire'],
+        ['12h00', 'Angélus, déjeuner et sieste'],
+        ['14h00', 'Commémoration'],
+        ['18h00', 'Angélus'],
+        ['19h30', 'Dîner'],
+        ['21h30', 'Veillée traditionnelle et journal'],
+        ['22h30', 'Couvre-feu']
+      ]
+    },
+    {
+      date: '2026-07-28',
+      day: 'Mardi',
+      label: '28 juillet',
+      title: 'Journée Eco-football',
+      word: 'Mot du jour : Force · Mot du soir : Fierté',
+      events: [
+        ['05h00', 'Réveil et prière'],
+        ['05h30', 'Messe'],
+        ['06h45', 'Jogging et entretien'],
+        ['08h00', 'Petit déjeuner'],
+        ['09h45', 'Classe de chant'],
+        ['11h00', 'Dangbessito propre : écologie'],
+        ['12h00', 'Angélus et déjeuner'],
+        ['13h00', 'Sieste'],
+        ['14h30', 'Match de football'],
+        ['17h00', 'Bilan du camp'],
+        ['19h00', 'Dîner'],
+        ['20h00', 'Feu du camp'],
+        ['22h00', 'Couvre-feu']
+      ]
+    },
+    {
+      date: '2026-07-29',
+      day: 'Mercredi',
+      label: '29 juillet',
+      title: 'Journée Ciaooo',
+      word: 'Mot du jour : Mission',
+      events: [
+        ['06h00', 'Réveil et prière'],
+        ['07h00', 'Jogging et entretien'],
+        ['08h30', 'Petit déjeuner'],
+        ['09h30', 'Douche'],
+        ['11h00', 'Classe de chant'],
+        ['12h00', 'Déjeuner'],
+        ['13h00', 'Départ']
+      ]
+    }
+  ];
+
+  function todayKey() {
+    const now = new Date();
+    const y = now.getFullYear();
+    const m = String(now.getMonth() + 1).padStart(2, '0');
+    const d = String(now.getDate()).padStart(2, '0');
+    return `${y}-${m}-${d}`;
+  }
+
+  const activeToday = todayKey();
+  const autoIndex = programme.findIndex(day => day.date === activeToday);
+  let selectedIndex = autoIndex >= 0 ? autoIndex : 0;
+  let lastAutoDate = activeToday;
+
+  function renderDay(index, fromAuto = false) {
+    selectedIndex = index;
+    const day = programme[index];
+
+    dateEl.textContent = `${day.day} ${day.label} 2026`;
+    titleEl.textContent = day.title;
+    wordEl.textContent = day.word;
+    const currentAutoIndex = programme.findIndex(item => item.date === todayKey());
+    modeEl.textContent = currentAutoIndex >= 0 && index === currentAutoIndex
+      ? 'Aujourd’hui au camp'
+      : fromAuto
+        ? 'Programme affiché automatiquement'
+        : 'Programme sélectionné';
+
+    timelineEl.innerHTML = day.events.map(([time, activity]) => `
+      <li class="prog-event">
+        <time class="prog-time">${time}</time>
+        <div class="prog-activity">${activity}</div>
+      </li>
+    `).join('');
+
+    daysEl.querySelectorAll('.prog-day-btn').forEach((btn, btnIndex) => {
+      const isActive = btnIndex === index;
+      btn.classList.toggle('is-active', isActive);
+      btn.setAttribute('aria-selected', String(isActive));
+      btn.setAttribute('tabindex', isActive ? '0' : '-1');
+    });
+  }
+
+  daysEl.innerHTML = programme.map((day, index) => `
+    <button class="prog-day-btn" type="button" role="tab" aria-controls="progPanel" data-index="${index}">
+      <span class="prog-day-num">${String(index + 1).padStart(2, '0')}</span>
+      <span>
+        <span class="prog-day-name">${day.day}</span>
+        <span class="prog-day-date">${day.label}</span>
+      </span>
+    </button>
+  `).join('');
+
+  daysEl.addEventListener('click', (e) => {
+    const btn = e.target.closest('.prog-day-btn');
+    if (!btn) return;
+    renderDay(Number(btn.dataset.index));
+  });
+
+  daysEl.addEventListener('keydown', (e) => {
+    if (!['ArrowDown', 'ArrowRight', 'ArrowUp', 'ArrowLeft', 'Home', 'End'].includes(e.key)) return;
+    e.preventDefault();
+
+    let next = selectedIndex;
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') next = (selectedIndex + 1) % programme.length;
+    if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') next = (selectedIndex - 1 + programme.length) % programme.length;
+    if (e.key === 'Home') next = 0;
+    if (e.key === 'End') next = programme.length - 1;
+
+    renderDay(next);
+    daysEl.querySelectorAll('.prog-day-btn')[next]?.focus();
+  });
+
+  renderDay(selectedIndex, autoIndex >= 0);
+
+  setInterval(() => {
+    const nextDate = todayKey();
+    if (nextDate === lastAutoDate) return;
+    lastAutoDate = nextDate;
+
+    const nextAutoIndex = programme.findIndex(day => day.date === nextDate);
+    if (nextAutoIndex >= 0) renderDay(nextAutoIndex, true);
+  }, 60000);
+})();
+
+/* ==========================================================================
+   12. Formulaire — validation & soumission
    ========================================================================== */
 (function initForm() {
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyOv_g2bAJcTtNbVPFeRZ0b6-ITkppeVA4IEnLCou8RV7snMgFQU6tNLcRLdOjVcgs/exec';
@@ -506,7 +763,7 @@
 })();
 
 /* ==========================================================================
-   12. Bouton retour en haut
+   13. Bouton retour en haut
    ========================================================================== */
 (function initBackTop() {
   const btn = document.getElementById('back-top');
@@ -522,7 +779,7 @@
 })();
 
 /* ==========================================================================
-   13. Smooth scroll (fallback navigateurs anciens)
+   14. Smooth scroll (fallback navigateurs anciens)
    ========================================================================== */
 (function initSmoothScroll() {
   if ('scrollBehavior' in document.documentElement.style) return;
