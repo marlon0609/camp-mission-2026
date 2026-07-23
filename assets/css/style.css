@@ -1515,7 +1515,7 @@ a { color: inherit; }
 /* Rangée basse — 3 sous-cartes */
 .contact-bottom {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 16px;
 }
 
@@ -1526,10 +1526,14 @@ a { color: inherit; }
   transform-style: preserve-3d;
   position: relative;
   transition: border-color var(--tm), box-shadow var(--tm);
+  text-decoration: none;
 }
-.contact-sub:hover {
+
+.contact-sub:hover,
+.contact-sub:focus-visible {
   border-color: rgba(0,229,196,0.22) !important;
   box-shadow: 0 16px 50px rgba(0,0,0,0.4), 0 0 30px rgba(0,229,196,0.06);
+  outline: none;
 }
 
 .contact-sub-icon {
@@ -1544,7 +1548,8 @@ a { color: inherit; }
   margin-bottom: 18px;
   transition: background var(--tf), border-color var(--tf);
 }
-.contact-sub:hover .contact-sub-icon {
+.contact-sub:hover .contact-sub-icon,
+.contact-sub:focus-visible .contact-sub-icon {
   background: rgba(0,229,196,0.12);
   border-color: rgba(0,229,196,0.28);
 }
